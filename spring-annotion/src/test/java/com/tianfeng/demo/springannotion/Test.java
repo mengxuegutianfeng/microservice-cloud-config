@@ -5,6 +5,8 @@ import com.tianfeng.demo.springannotion.bean.Person;
 import com.tianfeng.demo.springannotion.config.ConfigTest;
 import com.tianfeng.demo.springannotion.config.MainConfigOfAop;
 import com.tianfeng.demo.springannotion.config.MainConfigOfLifeCycle;
+import com.tianfeng.demo.springannotion.config.TxConfig;
+import com.tianfeng.demo.springannotion.tx.UserService;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.core.env.ConfigurableEnvironment;
 
@@ -56,5 +58,12 @@ public class Test {
         AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(MainConfigOfAop.class);
         MathCalculator mathCalculator = (MathCalculator)applicationContext.getBean("mathCalculator");
         mathCalculator.div(4,2);
+    }
+
+    @org.junit.Test
+    public void test07(){
+        AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(TxConfig.class);
+        UserService userService = (UserService)applicationContext.getBean("userService");
+        userService.insert();
     }
 }
