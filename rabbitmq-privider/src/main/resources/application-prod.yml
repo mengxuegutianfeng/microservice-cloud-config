@@ -6,7 +6,7 @@ spring:
     name: rabbitmq-provider
   rabbitmq:
     host: 192.168.217.11
-    port: 5672
+    port: 15672
     username: guest
     password: guest
     publisher-confirms: true
