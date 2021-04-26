@@ -19,14 +19,14 @@ public class SpringBootShardingTest {
 
     @Test
     public void test() {
-        for (int i = 0; i < 10; i++) {
+        for (int i = 1; i <= 10; i++) {
             Course course = new Course();
             if (i % 2 == 0) {
                 course.setCname("java-" + i);
             } else {
                 course.setCname("match-" + i);
             }
-            course.setUserId(100L);
+            course.setUserId((long)i);
             course.setCstatus("normal");
             courseMapper.insert(course);
         }
